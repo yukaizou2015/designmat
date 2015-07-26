@@ -35,4 +35,4 @@ data3 <- cbind(c(heading, data2$data2))
 data3 <- data.frame(data3)
 # Export data
 filename <- "Hellocon"
-write.table(data3, paste(filename,".mat", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+write.table(data3, paste(filename,".con", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
