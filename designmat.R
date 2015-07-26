@@ -5,7 +5,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
 ## 2) Create a "Covariate.xlsx" file and put in the same directory.
 ## The "demean" call is not very specific, as some covariate might not
 ## need to be demeaned, so this will be updated in the future.
-## designcov.R will come soon.
+## designcon.R will come soon.
 
         # Read in the data
         data <- read.csv("design.mat", header = FALSE, stringsAsFactors = FALSE)
