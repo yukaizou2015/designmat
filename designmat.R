@@ -1,8 +1,9 @@
 designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = TRUE) {
         # Read in the data
-        data <- read.csv("Hello.mat", header = FALSE, stringsAsFactors = FALSE)
+        data <- read.csv("design.mat", header = FALSE, stringsAsFactors = FALSE)
         # Read in the covariate sheet
         Covdata <- read.xlsx(Covdata, sheetIndex = 1)
+                # Demean the covariates
                 if (demean == TRUE) {
                         demean <- function(y) { # A function performing demean
                                 mCovdata <- apply(Covdata, 2, mean) # Calculate the mean of the covariate
@@ -11,7 +12,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
                         }
                         Covdata <- demean()
                 }
-        # Codes for creating a new heading
+        # Create new heading
         # Configure NW, NP, PP
         makehead <- function(NW = 2 + ncol(Covdata), NP = 10, PP = "1 1") { # A function creating the heading
                 NumWaves <- paste("/NumWaves", NW)
@@ -21,7 +22,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
                 heading <- c(NumWaves, NumPoints, PPheights, Matrix)
                 return(heading)
         }
-        heading <- makehead() # Assign the output of makehead function to headingf
+        heading <- makehead() # Assign the output of makehead function to heading
         ori <- data$V1[5:length(data$V1)] # Extract the original matrix data
         data2 <- cbind(ori, Covdata) # Create a matrix by column-combining the original matrix data and the covariate data, and convert to dataframe
         cols <- names(data2) # Define the columns to be pasted
@@ -31,4 +32,5 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
         data4 <- data.frame(cbind(data4)) # Create a matrix combining texts and data matrix by columns, and convert the matrix to dataframe
         # Export data:        
         write.table(data4, paste(filename,".mat", sep = ""), quote = FALSE, row.names = FALSE, col.names = FALSE)
+        # Don't know if two spaces will affect the permutation
 }
