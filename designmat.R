@@ -1,8 +1,8 @@
-designmat <- function(filename = "design", Covdata, demean = TRUE) {
+designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = TRUE) {
         # Read in the data
         data <- read.csv("Hello.mat", header = FALSE, stringsAsFactors = FALSE)
         # Read in the covariate sheet
-        Covdata <- read.xlsx("Covariate.xlsx", sheetIndex = 1)
+        Covdata <- read.xlsx(Covdata, sheetIndex = 1)
                 if (demean == TRUE) {
                         demean <- function(y) { # A function performing demean
                                 mCovdata <- apply(Covdata, 2, mean) # Calculate the mean of the covariate
