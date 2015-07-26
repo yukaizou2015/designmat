@@ -14,7 +14,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
                 }
         # Create new heading
         # Configure NW, NP, PP
-        makehead <- function(NW = 2 + ncol(Covdata), NP = 10, PP = "1 1") { # A function creating the heading
+        makehead <- function(NW = 2 + ncol(Covdata), NP = nrow(Covdata), PP = "1 1") { # A function creating the heading
                 NumWaves <- paste("/NumWaves", NW)
                 NumPoints <- paste("/NumPoints", NP)
                 PPheights <- paste("/PPheights", PP)
