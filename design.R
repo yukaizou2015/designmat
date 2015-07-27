@@ -23,6 +23,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
         data <- read.csv("design.mat", header = FALSE, stringsAsFactors = FALSE)
         
         # Read in the covariate sheet
+        library(xlsx)
         Covdata <- read.xlsx(Covdata, sheetIndex = 1)
         # Demean the covariates
         if (demean == TRUE) {
@@ -36,7 +37,7 @@ designmat <- function(filename = "design", Covdata = "Covariate.xlsx", demean = 
         
         # Create heading with NumWaves, NumContrasts, and PPheights configured
         NumWaves <- paste("/NumWaves", 2 + ncol(Covdata))
-                NC <<- 2 + ncol(Covdata) # For designcon function
+                NC <<- 2 + ncol(Covdata)*2 # For designcon function
         NumPoints <- paste("/NumPoints", nrow(Covdata))
         PPheights <- paste("/PPheights", "1 1")
         Matrix <- "/Matrix"
