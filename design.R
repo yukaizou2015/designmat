@@ -79,7 +79,8 @@ designcon <- function(filename = "design", NC) {
         } else if (NC == 2) {
                 data3 <- data
         } else {
-                for (i in 1:(NC-2)) {
+                NW <- NC/2 + 1 # NumWaves
+                for (i in 1:(NW-2)) {
                         ncols <- length(strsplit(data2$data2[1], " ")[[1]]) # Get the number of columns of the matrix
                         ori <- data2$data2[1:length(data2$data2)] # Extract the old matrix data
                         EV1 <- c(ori, rep(paste(rep("0", ncols), collapse = " "), 2)) # Add two more rows of zeros
@@ -92,7 +93,7 @@ designcon <- function(filename = "design", NC) {
                 }
                 
                 # Create heading with NumWaves, NumContrasts, and PPheights configured
-                NumWaves <- paste("/NumWaves", NC)
+                NumWaves <- paste("/NumWaves", NW)
                 NumContrasts <- paste("/NumContrasts", NC)
                 PPheights <- paste("/PPheights", "1 1")
                 Matrix <- "/Matrix"
