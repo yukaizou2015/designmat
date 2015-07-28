@@ -1,6 +1,6 @@
 design <- function(filename = "design", Covdata = "Covariate.xlsx", demean = TRUE) {
         # Check design.con and design.mat exists
-        if (file.exists("design.mat") & file.exists("design.con") == FALSE) {
+        if (file.exists("design.mat") == FALSE | file.exists("design.con") == FALSE) {
                 # Specify the subjects number in each group. Inspired from: https://stat.ethz.ch/pipermail/r-help/2003-July/036129.html
                 group <- function()
                 {
