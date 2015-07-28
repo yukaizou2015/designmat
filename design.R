@@ -12,7 +12,7 @@ design <- function(filename = "design", Covdata = "Covariate.xlsx", demean = TRU
                 }
                 group()
                 # System call
-                system("export FSLVERSION=4.1.9; design_ttest2 design 5 5") # number subject to change
+                system(paste("export FSLVERSION=4.1.9; design_ttest2 design", a, b)) # number subject to change
         }
         
         designmat(filename, Covdata, demean)
