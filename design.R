@@ -9,10 +9,10 @@ design <- function(filename = "design", Covdata = "Covariate.xlsx", demean = TRU
                         cat('Number of subjects in the second group:', '\n')
                         b <- scan("",n=1, quiet=TRUE)
                         message(paste("export FSLVERSION=4.1.9; design_ttest2 design", a, b))
+                        # System call
+                        system(paste("export FSLVERSION=4.1.9; design_ttest2 design", a, b))
                 }
                 group()
-                # System call
-                system(paste("export FSLVERSION=4.1.9; design_ttest2 design", a, b)) # number subject to change
         }
         
         designmat(filename, Covdata, demean)
